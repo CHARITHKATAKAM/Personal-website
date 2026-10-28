@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Plus_Jakarta_Sans, Inter, Fira_Code } from "next/font/google";
 // @ts-ignore: Allow side-effect CSS import without type declarations
 import "./globals.css";
@@ -56,6 +57,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          id="google-adsense"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5310628773356633"
+          crossOrigin="anonymous"
+          strategy="beforeInteractive"
+        />
+      </head>
       <body
         className={`${plusJakarta.variable} ${inter.variable} ${firaCode.variable} antialiased`}
       >
