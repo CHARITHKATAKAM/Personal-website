@@ -4,7 +4,7 @@ import { Plus_Jakarta_Sans, Inter, Fira_Code } from "next/font/google";
 // @ts-ignore: Allow side-effect CSS import without type declarations
 import "./globals.css";
 
-// Display / heading font — premium, modern, strong personality
+// Display / heading font
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-display",
   subsets: ["latin"],
@@ -12,7 +12,7 @@ const plusJakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-// Body font — the industry standard for readability
+// Body font
 const inter = Inter({
   variable: "--font-body",
   subsets: ["latin"],
@@ -20,7 +20,7 @@ const inter = Inter({
   display: "swap",
 });
 
-// Monospace — for code/terminal elements
+// Monospace font
 const firaCode = Fira_Code({
   variable: "--font-mono",
   subsets: ["latin"],
@@ -58,18 +58,26 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Google AdSense site ownership verification */}
+        <meta
+          name="google-adsense-account"
+          content="ca-pub-5310628773356633"
+        />
+      </head>
+
+      <body
+        className={`${plusJakarta.variable} ${inter.variable} ${firaCode.variable} antialiased`}
+      >
+        {children}
+
+        {/* Google AdSense script */}
         <Script
           id="google-adsense"
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5310628773356633"
           crossOrigin="anonymous"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
         />
-      </head>
-      <body
-        className={`${plusJakarta.variable} ${inter.variable} ${firaCode.variable} antialiased`}
-      >
-        {children}
       </body>
     </html>
   );
